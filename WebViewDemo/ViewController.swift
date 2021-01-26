@@ -14,16 +14,6 @@ class ViewController: UIViewController {
         let dwk = DWKWebView()
         dwk.dsuiDelegate = self
         return dwk
-//        let config = WKWebViewConfiguration()
-//        let usercontent = WKUserContentController()
-//        //  window.webkit.messageHandlers.jsCallNative.postMessage(data)
-//        usercontent.add(self, name: "jsCallNative")
-//        config.userContentController = usercontent
-//        let wk = WKWebView(frame: .null, configuration: config)
-//        wk.uiDelegate = self
-//        wk.navigationDelegate = self
-//
-//        return wk
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +29,11 @@ class ViewController: UIViewController {
         self.webView.reload()
     }
     
-    @IBAction func callJS(_ sender: UIButton) {
-        
-        self.webView.callHandler("jscall", arguments: [1,2,3])
-//        webView.callHandler(<#T##methodName: String##String#>, arguments: <#T##[Any]?#>, completionHandler: <#T##((Any?) -> Void)?##((Any?) -> Void)?##(Any?) -> Void#>)
-//        self.webView.evaluateJavaScript("jscall('hello js!')") { (result, error) in
-//        }
-    }
-    
-    
     func jscall(_ body: Any) {
         print(body)
+    }
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        self.webView.goBack()
     }
     
 }
